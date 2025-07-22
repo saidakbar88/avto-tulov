@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Avto To‘lov (USSD)</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #000428, #004e92);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 12px 20px;
+      background: #00c6ff;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #ussd {
+      margin-top: 20px;
+      background: rgba(0,0,0,0.3);
+      padding: 15px;
+      border-radius: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>💳 Avto To‘lov Paneli</h1>
+    <p>⬇️ Quyidagi maydonga to‘lov miqdorini kiriting:</p>
+    <input type="number" id="summa" placeholder="Masalan: 10000" />
+    <button onclick="generateUSSD()">📲 To‘lov Kodini Ko‘rish</button>
+
+    <div id="ussd">
+      <p>✅ Telefoningizda to‘lov qilish uchun ushbu kodni tering:</p>
+      <h2 id="ussdCode">*880*079101*SUMMA#</h2>
+      <p>
+        🔹 Bu <strong>USSD kod</strong> orqali siz CLICK orqali karta raqamiga to‘lov qilasiz. <br/>
+        🔹 Kodingizni tanlab, 📋 <strong>nusxa ko‘chirib</strong> oling va 📞 telefoningizda tering. <br/>
+        🔹 Har safar to‘lov miqdori o‘zgarsa, kod ham o‘zgaradi.
+      </p>
+      <p><strong>Misol:</strong> 10 000 so‘m to‘lash uchun kod: <br/><code>*880*079101*10000#</code></p>
+      <p style="margin-top:20px;">👤 Admin: <strong>@AdxamovUz</strong></p>
+    </div>
+  </div>
+
+  <script>
+    function generateUSSD() {
+      const amount = document.getElementById("summa").value;
+      const box = document.getElementById("ussd");
+      const code = document.getElementById("ussdCode");
+
+      if (amount && amount > 0) {
+        code.textContent = `*880*079101*${amount}#`;
+        box.style.display = "block";
+      } else {
+        alert("Iltimos, to‘lov summasini kiriting!");
+      }
+    }
+  </script>
+</body>
+</html>
