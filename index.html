@@ -1,90 +1,9 @@
-<!DOCTYPE html>
-<html lang="uz">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Avto To‘lov (USSD)</title>
-  <style>
-    body {
-      background: linear-gradient(to right, #000428, #004e92);
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .container {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-      max-width: 400px;
-      width: 90%;
-      text-align: center;
-    }
-    input {
-      width: 100%;
-      padding: 12px;
-      font-size: 1rem;
-      border-radius: 8px;
-      border: none;
-      margin-top: 10px;
-      margin-bottom: 20px;
-    }
-    button {
-      padding: 12px 20px;
-      background: #00c6ff;
-      color: white;
-      font-size: 1rem;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-    #ussd {
-      margin-top: 20px;
-      background: rgba(0,0,0,0.3);
-      padding: 15px;
-      border-radius: 10px;
-      display: none;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>💳 Avto To‘lov Paneli</h1>
-    <p>⬇️ Quyidagi maydonga to‘lov miqdorini kiriting:</p>
-    <input type="number" id="summa" placeholder="Masalan: 10000" />
-    <button onclick="generateUSSD()">📲 To‘lov Kodini Ko‘rish</button>
-
-    <div id="ussd">
-      <p>✅ Telefoningizda to‘lov qilish uchun ushbu kodni tering:</p>
-      <h2 id="ussdCode">*880*079101*SUMMA#</h2>
-      <p>
-        🔹 Bu <strong>USSD kod</strong> orqali siz CLICK orqali karta raqamiga to‘lov qilasiz. <br/>
-        🔹 Kodingizni tanlab, 📋 <strong>nusxa ko‘chirib</strong> oling va 📞 telefoningizda tering. <br/>
-        🔹 Har safar to‘lov miqdori o‘zgarsa, kod ham o‘zgaradi.
-      </p>
-      <p><strong>Misol:</strong> 10 000 so‘m to‘lash uchun kod: <br/><code>*880*079101*10000#</code></p>
-      <p style="margin-top:20px;">👤 Admin: <strong>@AdxamovUz</strong></p>
-    </div>
-  </div>
-
-  <script>
-    function generateUSSD() {
-      const amount = document.getElementById("summa").value;
-      const box = document.getElementById("ussd");
-      const code = document.getElementById("ussdCode");
-
-      if (amount && amount > 0) {
-        code.textContent = *880*079101*${amount}#;
-        box.style.display = "block";
-      } else {
-        alert("Iltimos, to‘lov summasini kiriting!");
-      }
-    }
-  </script>
-</body>
-</html>
+Tulov Qilish body { margin: 0; font-family: 'Rubik', sans-serif; background: linear-gradient(135deg, #6a11cb, #2575fc); color: white; display: flex; align-items: center; justify-content: center; min-height: 100vh; } .container { background: rgba(0, 0, 0, 0.4); padding: 30px; border-radius: 20px; text-align: center; width: 90%; max-width: 400px; } .profile { margin-bottom: 20px; } .profile img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 4px solid white; } .profile h2 { margin: 10px 0 5px; font-weight: 600; } .profile p { margin: 0; color: #ddd; } .form-group { margin: 15px 0; text-align: left; } .form-group input, .form-group textarea { width: 100%; padding: 10px; border-radius: 10px; border: none; font-size: 16px; margin-top: 5px; } .form-group textarea { resize: none; height: 80px; } .submit-btn { background: #00c851; border: none; color: white; padding: 15px; font-size: 18px; border-radius: 10px; width: 100%; cursor: pointer; } .checkbox { margin-top: 15px; text-align: left; font-size: 14px; } .checkbox input { margin-right: 5px; } 
+￼ 
+Saidakbar
+@AdxamovUz
+Xush Kelibsiz 👨🏻‍💻!
+Ismingizni kiriting 
+Izohingizni kiriting 
+Tulov Qilish ♻️ 
+Xizmat shartlari va qoidalarga roziman
