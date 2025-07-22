@@ -1,74 +1,88 @@
-
 <!DOCTYPE html>
 <html lang="uz">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Avto To‘lov</title>
+  <title>Avto To‘lov (USSD)</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      background: linear-gradient(to bottom right, #2b5876, #4e4376);
-      color: #fff;
-      text-align: center;
+      background: linear-gradient(to right, #000428, #004e92);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
       height: 100vh;
+      margin: 0;
     }
     .container {
-      background: rgba(0,0,0,0.5);
+      background: rgba(255, 255, 255, 0.1);
       padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-      width: 90%;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
       max-width: 400px;
+      width: 90%;
+      text-align: center;
     }
-    input[type="number"] {
+    input {
       width: 100%;
-      padding: 10px;
-      font-size: 18px;
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 8px;
       border: none;
-      border-radius: 10px;
-      margin: 10px 0;
+      margin-top: 10px;
+      margin-bottom: 20px;
     }
     button {
       padding: 12px 20px;
       background: #00c6ff;
+      color: white;
+      font-size: 1rem;
       border: none;
       border-radius: 10px;
-      font-size: 18px;
-      color: #fff;
       cursor: pointer;
-      width: 100%;
     }
-    button:hover {
-      background: #0072ff;
-    }
-    .card {
-      font-weight: bold;
-      margin-bottom: 10px;
+    #ussd {
+      margin-top: 20px;
+      background: rgba(0,0,0,0.3);
+      padding: 15px;
+      border-radius: 10px;
+      display: none;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>Premium uchun to‘lov</h2>
-    <div class="card">Karta: 9860 1766 2003 7794</div>
-    <input type="number" id="amount" placeholder="Summani kiriting" />
-    <button onclick="makePayment()">To‘lov qilish</button>
+    <h1>💳 Avto To‘lov Paneli</h1>
+    <p>⬇️ Quyidagi maydonga to‘lov miqdorini kiriting:</p>
+    <input type="number" id="summa" placeholder="Masalan: 10000" />
+    <button onclick="generateUSSD()">📲 To‘lov Kodini Ko‘rish</button>
+
+    <div id="ussd">
+      <p>✅ Telefoningizda to‘lov qilish uchun ushbu kodni tering:</p>
+      <h2 id="ussdCode">*880*079101*SUMMA#</h2>
+      <p>
+        🔹 Bu <strong>USSD kod</strong> orqali siz CLICK orqali karta raqamiga to‘lov qilasiz. <br/>
+        🔹 Kodingizni tanlab, 📋 <strong>nusxa ko‘chirib</strong> oling va 📞 telefoningizda tering. <br/>
+        🔹 Har safar to‘lov miqdori o‘zgarsa, kod ham o‘zgaradi.
+      </p>
+      <p><strong>Misol:</strong> 10 000 so‘m to‘lash uchun kod: <br/><code>*880*079101*10000#</code></p>
+      <p style="margin-top:20px;">👤 Admin: <strong>@AdxamovUz</strong></p>
+    </div>
   </div>
 
   <script>
-    function makePayment() {
-      const amount = document.getElementById('amount').value;
+    function generateUSSD() {
+      const amount = document.getElementById("summa").value;
+      const box = document.getElementById("ussd");
+      const code = document.getElementById("ussdCode");
+
       if (amount && amount > 0) {
-        const url = `https://click.uz/pay?amount=${amount}&card=9860176620037794`;
-        window.open(url, '_blank');
+        code.textContent = *880*079101*${amount}#;
+        box.style.display = "block";
       } else {
-        alert("Iltimos, to‘lov summasini kiriting.");
+        alert("Iltimos, to‘lov summasini kiriting!");
       }
     }
   </script>
