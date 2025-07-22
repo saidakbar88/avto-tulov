@@ -1,9 +1,105 @@
-Tulov Qilish body { margin: 0; font-family: 'Rubik', sans-serif; background: linear-gradient(135deg, #6a11cb, #2575fc); color: white; display: flex; align-items: center; justify-content: center; min-height: 100vh; } .container { background: rgba(0, 0, 0, 0.4); padding: 30px; border-radius: 20px; text-align: center; width: 90%; max-width: 400px; } .profile { margin-bottom: 20px; } .profile img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 4px solid white; } .profile h2 { margin: 10px 0 5px; font-weight: 600; } .profile p { margin: 0; color: #ddd; } .form-group { margin: 15px 0; text-align: left; } .form-group input, .form-group textarea { width: 100%; padding: 10px; border-radius: 10px; border: none; font-size: 16px; margin-top: 5px; } .form-group textarea { resize: none; height: 80px; } .submit-btn { background: #00c851; border: none; color: white; padding: 15px; font-size: 18px; border-radius: 10px; width: 100%; cursor: pointer; } .checkbox { margin-top: 15px; text-align: left; font-size: 14px; } .checkbox input { margin-right: 5px; } 
-￼ 
-Saidakbar
-@AdxamovUz
-Xush Kelibsiz 👨🏻‍💻!
-Ismingizni kiriting 
-Izohingizni kiriting 
-Tulov Qilish ♻️ 
-Xizmat shartlari va qoidalarga roziman
+<!DOCTYPE html><html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donat qilish</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Rubik', sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+    .profile {
+      margin-bottom: 20px;
+    }
+    .profile img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+    }
+    .profile h2 {
+      margin: 10px 0 5px;
+      font-weight: 600;
+    }
+    .profile p {
+      margin: 0;
+      color: #ddd;
+    }
+    .form-group {
+      margin: 15px 0;
+      text-align: left;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      margin-top: 5px;
+    }
+    .form-group textarea {
+      resize: none;
+      height: 80px;
+    }
+    .submit-btn {
+      background: #00c851;
+      border: none;
+      color: white;
+      padding: 15px;
+      font-size: 18px;
+      border-radius: 10px;
+      width: 100%;
+      cursor: pointer;
+    }
+    .checkbox {
+      margin-top: 15px;
+      text-align: left;
+      font-size: 14px;
+    }
+    .checkbox input {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="profile">
+      <img src="https://i.imgur.com/sf2Dz4B.png" alt="Admin">
+      <h2>Saidakbar</h2>
+      <p>@AdxamovUz</p>
+    </div>
+    <h3>Sevimli kanalingizni qo’llab-quvvatlang!</h3>
+    <form>
+      <div class="form-group">
+        <label>Ismingizni kiriting</label>
+        <input type="text" placeholder="Ism...">
+      </div>
+      <div class="form-group">
+        <label>Izohingizni kiriting</label>
+        <textarea placeholder="Izoh..."></textarea>
+      </div>
+      <button class="submit-btn">Donat qilish</button>
+      <div class="checkbox">
+        <input type="checkbox" id="rules">
+        <label for="rules">Xizmat shartlari va qoidalarga roziman</label>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
