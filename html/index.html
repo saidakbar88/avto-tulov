@@ -1,66 +1,90 @@
+
 <!DOCTYPE html>
 <html lang="uz">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>💳 Avto To‘lov</title>
+  <title>Avto To‘lov (USSD)</title>
   <style>
     body {
-      background: linear-gradient(135deg, #dfe9f3, #ffffff);
-      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #000428, #004e92);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      max-width: 400px;
+      width: 90%;
       text-align: center;
-      padding: 2rem;
-    }
-    h1 {
-      font-size: 2rem;
-      color: #333;
-    }
-    .form {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      display: inline-block;
     }
     input {
-      padding: 10px;
-      margin: 10px 0;
-      width: 200px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+      margin-top: 10px;
+      margin-bottom: 20px;
     }
     button {
-      background-color: #4CAF50;
+      padding: 12px 20px;
+      background: #00c6ff;
       color: white;
-      padding: 10px 20px;
+      font-size: 1rem;
       border: none;
-      border-radius: 6px;
+      border-radius: 10px;
       cursor: pointer;
     }
-    button:hover {
-      background-color: #45a049;
+    #ussd {
+      margin-top: 20px;
+      background: rgba(0,0,0,0.3);
+      padding: 15px;
+      border-radius: 10px;
+      display: none;
     }
   </style>
 </head>
 <body>
-  <h1>🧾 Avto To‘lov Formasi</h1>
-  <div class="form">
-    <form onsubmit="return openClickLink()">
-      <p>💸 To‘lov miqdorini kiriting:</p>
-      <input type="number" id="amount" placeholder="Masalan: 15000 so'm" required />
-      <br />
-      <button type="submit">⬇️ To‘lovga o‘tish</button>
-    </form>
+  <div class="container">
+    <h1>💳 Avto To‘lov Paneli</h1>
+    <p>⬇️ Quyidagi maydonga to‘lov miqdorini kiriting:</p>
+    <input type="number" id="summa" placeholder="Masalan: 10000" />
+    <button onclick="generateUSSD()">📲 To‘lov Kodini Ko‘rish</button>
+
+    <div id="ussd">
+      <p>✅ Telefoningizda to‘lov qilish uchun ushbu kodni tering:</p>
+      <h2 id="ussdCode">*880*079101*SUMMA#</h2>
+      <p>
+        🔹 Bu <strong>USSD kod</strong> orqali siz CLICK orqali karta raqamiga to‘lov qilasiz. <br/>
+        🔹 Kodingizni tanlab, 📋 <strong>nusxa ko‘chirib</strong> oling va 📞 telefoningizda tering. <br/>
+        🔹 Har safar to‘lov miqdori o‘zgarsa, kod ham o‘zgaradi.
+      </p>
+      <p><strong>Misol:</strong> 10 000 so‘m to‘lash uchun kod: <br/><code>*880*079101*10000#</code></p>
+      <p style="margin-top:20px;">👤 Admin: <strong>@AdxamovUz</strong></p>
+    </div>
   </div>
 
   <script>
-    function openClickLink() {
-      const amount = document.getElementById('amount').value;
-      if (amount) {
-        const clickLink = `https://my.click.uz/services/pay?service_id=12345&amount=${amount}&merchant_id=YOUR_MERCHANT_ID`;
-        window.open(clickLink, "_blank");
+    function generateUSSD() {
+      const amount = document.getElementById("summa").value;
+      const box = document.getElementById("ussd");
+      const code = document.getElementById("ussdCode");
+
+      if (amount && amount > 0) {
+        code.textContent = `*880*079101*${amount}#`;
+        box.style.display = "block";
+      } else {
+        alert("Iltimos, to‘lov summasini kiriting!");
       }
-      return false;
     }
   </script>
 </body>
