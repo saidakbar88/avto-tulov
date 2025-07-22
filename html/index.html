@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>💳 Avto To‘lov</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #dfe9f3, #ffffff);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #333;
+    }
+    .form {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: inline-block;
+    }
+    input {
+      padding: 10px;
+      margin: 10px 0;
+      width: 200px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧾 Avto To‘lov Formasi</h1>
+  <div class="form">
+    <form onsubmit="return openClickLink()">
+      <p>💸 To‘lov miqdorini kiriting:</p>
+      <input type="number" id="amount" placeholder="Masalan: 15000 so'm" required />
+      <br />
+      <button type="submit">⬇️ To‘lovga o‘tish</button>
+    </form>
+  </div>
+
+  <script>
+    function openClickLink() {
+      const amount = document.getElementById('amount').value;
+      if (amount) {
+        const clickLink = `https://my.click.uz/services/pay?service_id=12345&amount=${amount}&merchant_id=YOUR_MERCHANT_ID`;
+        window.open(clickLink, "_blank");
+      }
+      return false;
+    }
+  </script>
+</body>
+</html>
